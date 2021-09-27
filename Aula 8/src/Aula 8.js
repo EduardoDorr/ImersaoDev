@@ -2,7 +2,7 @@ var cards = [
   {
     name: "Flamerion",
     class: "Archer",
-    url: "https://i.ibb.co/LJNbJ3f/Flamerion-Archer.png",
+    url: "https://i.ibb.co/3hk5DLf/Flamerion-Archer.png",
     attributes: {
       Strenght: 2,
       Dexterity: 10,
@@ -13,7 +13,7 @@ var cards = [
   {
     name: "Rufus",
     class: "Shielder",
-    url: "https://i.ibb.co/2yCWJnS/Rufus-Shielder.png",
+    url: "https://i.ibb.co/T1zdp6K/Rufus-Shielder.png",
     attributes: {
       Strenght: 4,
       Dexterity: 4,
@@ -24,7 +24,7 @@ var cards = [
   {
     name: "Nutaluk",
     class: "Lancer",
-    url: "https://i.ibb.co/GsMQrG5/Nutaluk-Lancer.png",
+    url: "https://i.ibb.co/1G5Xfd9/Nutaluk-Lancer.png",
     attributes: {
       Strenght: 8,
       Dexterity: 7,
@@ -35,7 +35,7 @@ var cards = [
   {
     name: "Lonewolf",
     class: "Swordsman",
-    url: "https://i.ibb.co/TLQtdwN/Lonewolf-Swordsman.png",
+    url: "https://i.ibb.co/hsz3Rrh/Lonewolf-Swordsman.png",
     attributes: {
       Strenght: 8,
       Dexterity: 6,
@@ -46,7 +46,7 @@ var cards = [
   {
     name: "So Yong",
     class: "Fighter",
-    url: "https://i.ibb.co/02Y1z1K/So-Yong-Fighter.png",
+    url: "https://i.ibb.co/kBP1t19/So-Yong-Fighter.png",
     attributes: {
       Strenght: 10,
       Dexterity: 7,
@@ -57,7 +57,7 @@ var cards = [
   {
     name: "Arthur",
     class: "Duelist",
-    url: "https://i.ibb.co/DwCVyDr/Arthur-Duelist.png",
+    url: "https://i.ibb.co/CtpWgv7/Arthur-Duelist.png",
     attributes: {
       Strenght: 6,
       Dexterity: 9,
@@ -68,7 +68,7 @@ var cards = [
   {
     name: "Haru",
     class: "Elementalist",
-    url: "https://i.ibb.co/Yc7Nk36/Haru-Elementalist.png",
+    url: "https://i.ibb.co/V9qHDzb/Haru-Elementalist.png",
     attributes: {
       Strenght: 2,
       Dexterity: 6,
@@ -79,7 +79,7 @@ var cards = [
   {
     name: "Sir Terrance Screws",
     class: "Knight",
-    url: "https://i.ibb.co/RP1C2sc/Sir-Terrance-Screws-Knight.png",
+    url: "https://i.ibb.co/mT41jZF/Sir-Terrance-Screws-Knight.png",
     attributes: {
       Strenght: 8,
       Dexterity: 4,
@@ -102,31 +102,15 @@ function sortearCarta() {
   cpuCard = tempCards[index];
 
   document.getElementById("btnSortear").disabled = true;
+  document.getElementById("btnJogar").disabled = false;
 
-  ScreenCard(playerCard);
-  ScreenForm();
-  WriteOptions(playerCard);
+  ScreenPlayerCard(playerCard);
 }
 
 function resetar() {
   document.getElementById("btnSortear").disabled = false;
   document.getElementById("options").innerHTML = "";
   document.getElementById("cards").innerHTML = "";
-}
-
-function ScreenForm() {
-  var elementHTML = "";
-
-  elementHTML += "<div class='container-form'>";
-  elementHTML += "<form id='form'>";
-  elementHTML += "<h2>Escolha o seu atributo</h2>";
-  elementHTML += "<div class='opcoes' id='opcoes'></div>";
-  elementHTML += "<button type='button' id='btnJogar' onclick='jogar()'>Jogar</button>";
-  elementHTML += "<h2 class='resultado' id='resultado'></h2>";
-  elementHTML += "</form>";
-  elementHTML += "</div>";
-
-  document.getElementById("options").innerHTML = elementHTML;
 }
 
 function jogar() {
@@ -146,25 +130,40 @@ function jogar() {
 
   document.getElementById("btnJogar").disabled = true;
 
-  ScreenCard(cpuCard);
+  ScreenCpuCard(cpuCard);
 }
 
-function ScreenCard(card) {
-  var img = document.createElement("img");
-  img.src = card.url;
-
-  document.getElementById("cards").appendChild(img);
-}
-
-function WriteOptions(card) {
-  var elementHTML = "";
+function ScreenPlayerCard(card) {
+  var divPlayerCard = document.getElementById("carta-jogador");
+  divPlayerCard.style.backgroundImage = `url(${card.url})`;
+  //divPlayerCard.style.backgroundImage = "url(" + card.url + ")"; # Mesma coisa que o anterior
+  var frame = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent-ajustado.png" style=" width: inherit; height: inherit; position: absolute;">';
+  var tagHTML = "<div id='opcoes' class='carta-status'>"
+  var attributeHTML = "";
 
   for (var attribute in card.attributes) {
-    elementHTML += "<input type='radio' name='attributes' value='" + attribute + "'>";
-    elementHTML += attribute;
+    attributeHTML += "<input type='radio' name='attributes' value='" + attribute + "'>" + attribute + " " + card.attributes[attribute] + "<br>";
   }
 
-  document.getElementById("opcoes").innerHTML = elementHTML;
+  var nameCard = `<p class="carta-subtitle">${card.name}</p>`;
+
+  divPlayerCard.innerHTML = frame + nameCard + tagHTML + attributeHTML + "</div>";
+}
+
+function ScreenCpuCard(card) {
+  var divCpuCard = document.getElementById("carta-maquina");
+  divCpuCard.style.backgroundImage = `url(${card.url})`;
+  var frame = '<img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/card-super-trunfo-transparent-ajustado.png" style=" width: inherit; height: inherit; position: absolute;">';
+  var tagHTML = "<div id='opcoes' class='carta-status'>"
+  var attributeHTML = "";
+
+  for (var attribute in card.attributes) {
+    attributeHTML += "<p type='text' name='attributes' value='" + attribute + "'>" + attribute + " " + card.attributes[attribute] + "</p><br>";
+  }
+
+  var nameCard = `<p class="carta-subtitle">${card.name}</p>`;
+
+  divCpuCard.innerHTML = frame + nameCard + tagHTML + attributeHTML + "</div>";
 }
 
 function GetAttribute() {
