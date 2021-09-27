@@ -1,0 +1,77 @@
+body {
+  font-family: "Roboto Mono", monospace;
+  text-align: center;
+  background-image: url("https://www.alura.com.br/assets/img/imersoes/dev-2021/dia-04-aluraflix-e-filmes.png");
+  background-color: #000000;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+.page-title {
+  color: #ffffff;
+  margin: 0 0 5px;
+}
+
+.page-subtitle {
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+.page-logo {
+  width: 200px;
+}
+
+.alura-logo {
+  width: 40px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#moviesList img {
+  margin: 10px;
+  max-height: 400px;
+}
+
+.addMovie {
+  margin: 0 0 15px;
+}
+
+.addMovie input#nameMovie {
+  margin: 0 auto;
+  padding: 10px 15px;
+  text-align: left;
+  width: 20%;
+  border-radius: 4px;
+}
+
+.addMovie input#urlMovie {
+  margin: 0 auto;
+  padding: 10px 15px;
+  text-align: left;
+  width: 60%;
+  border-radius: 4px;
+}
+
+.addMovie button {
+  border: 0;
+  color: #ffffff;
+  background: #da1e26;
+  font-weight: bold;
+  padding: 15px 25px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.addMovie button:hover {
+  opacity: 0.8;
+}

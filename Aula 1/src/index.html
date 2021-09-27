@@ -1,31 +1,54 @@
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>CodePen - Calculadora de média</title>
-  <link rel="stylesheet" href="./style.css">
+<div class="containerBody">
+  <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-conversor-de-moedas.svg"
+    class="page-logo" alt=""><br><br>
 
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<html>
-  <head>
-    <title> Imersão Dev Alura - Aula 01</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="page-title">
-      Calculadora de média</h1>
-      <p class="page-subtitle">
-      Descubra qual a sua média de nota de todas as provas!
-      </p>
-      <img src="https://www.alura.com.br/assets/img/imersoes/dev-2021/logo-imersao-conversor-de-moedas.svg" class="page-logo" alt="">
-      <p class="notaFixadaB">
-      Sua nota é
-      </p>
-    </div>
-    <a href="https://alura.com.br/" target="_blank">
-    <img src="https://www.alura.com.br/assets/img/home/alura-logo.svg" alt="" class="alura-logo">
-    </a>
-  </body>
-</html>
+  <div class="containerT">
+    <h1 class="t-title">
+      Verifique sua Média
+    </h1>
+    <label class="label average" for="stBimester">1º Bimestre:</label>
+    <input type="text" id="stGrade" name="stBimester" /><br>
+
+    <label class="label average" for="ndBimester">2º Bimestre:</label>
+    <input type="text" id="ndGrade" name="ndBimester" /><br>
+
+    <label class="label average" for="rdBimester">3º Bimestre:</label>
+    <input type="text" id="rdGrade" name="rdBimester" /><br>
+
+    <label class="label average" for="thBimester">4º Bimestre:</label>
+    <input type="text" id="thGrade" name="thBimester" /><br>
+
+    <label class="label average" for="avgGrade">Média Final:</label>
+    <input type="text" id="finalGrade" name="avgGrade" readonly="readonly" /><br>
+
+    <button type="submit" onclick="Compute()">Calcula Média</button>
+
+    <h2 class="avg-result" id="resultGrade"></h2>
+  </div>
+
+  <div class="containerT">
+    <h1 class="t-title">
+      Converta uma Temperatura
+    </h1>
+
+    <label class="label temperature" for="tempC">°C:</label>
+    <input type="text" id="gCelsius" name="tempC" /><br>
+
+    <label class="label temperature" for="tempF">°F:</label>
+    <input type="text" id="gFahrenheit" name="tempF" readonly="readonly" /><br>
+
+    <label class="label temperature" for="tempK">K:</label>
+    <input type="text" id="kelvin" name="tempK" readonly="readonly" /><br>
+
+    <label class="label temperature" for="tempR">°R:</label>
+    <input type="text" id="gRankine" name="tempR" readonly="readonly" /><br>
+
+    <button type="submit" onclick="Convert()">Converter</button>
+  </div>
+
+</div>
+
+
+
+<a href="https://alura.com.br/" target="_blank"><img src="https://www.alura.com.br/assets/img/home/alura-logo.svg"
+    alt="" class="alura-logo">
